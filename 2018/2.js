@@ -249,7 +249,6 @@ oiwudpbseqhxrefmlgktnujvia
 oiicdpbseqhxryfdloktnujvza
 oihcjpbsxqhxryfmlgktnujvza`;
 
-
 const ids = input.split(/\r\n|\r|\n/);
 
 let twoTimes = 0;
