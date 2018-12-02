@@ -1,5 +1,4 @@
-const input =
-    `-10
+const input = `-10
 +18
 +5
 +1
@@ -1025,7 +1024,7 @@ const part2 = () => {
     let frequency = 0;
     const frequencies = new Set([frequency]);
     while (true) {
-        for (let value of input.split(/\r\n|\r|\n/)) {
+        for (const value of input.split(/\r\n|\r|\n/)) {
             frequency += parseInt(value);
             if (frequencies.has(frequency)) {
                 return frequency;
