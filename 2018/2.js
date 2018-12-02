@@ -290,9 +290,7 @@ const part2 = () => {
             let differenceCount = 0;
             let differenceIndex;
             for (let i = 0; i < id.length; i++) {
-                const character = id.charAt(i);
-                const character2 = id2.charAt(i);
-                if (character !== character2) {
+                if (id.charAt(i) !== id2.charAt(i)) {
                     differenceCount++;
                     differenceIndex = i;
                     if (differenceCount > 1) {
