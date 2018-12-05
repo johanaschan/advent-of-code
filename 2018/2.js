@@ -1,8 +1,7 @@
-let twoTimes = 0;
-let threeTimes = 0;
-
 const part1 = () => {
     const ids = input.split(/\n/);
+    let twoTimes = 0;
+    let threeTimes = 0;
     for (const id of ids) {
         const frequency = {};
         for (let i = 0; i < id.length; i++) {
@@ -13,23 +12,23 @@ const part1 = () => {
                 frequency[character] = 1;
             }
         }
-        count(frequency);
+        let countedTwoTimes, countedThreeTimes = false;
+        Object.keys(frequency).forEach(key => {
+            const count = frequency[key];
+            if (!countedTwoTimes && count === 2) {
+                countedTwoTimes = true;
+                twoTimes++;
+            } else if (!countedThreeTimes && count === 3) {
+                countedThreeTimes = true;
+                threeTimes++;
+            }
+        });
     }
     return twoTimes * threeTimes;
 };
 
-const count = (frequency) => {
-    let countedTwoTimes, countedThreeTimes = false;
-    Object.keys(frequency).forEach(key => {
-        const count = frequency[key];
-        if (count === 2 && !countedTwoTimes) {
-            twoTimes++;
-            countedTwoTimes = true;
-        } else if (count === 3 && !countedThreeTimes) {
-            threeTimes++;
-            countedThreeTimes = true;
-        }
-    });
+const count = (frequency, twoTimes, threeTimes) => {
+
 };
 
 const part2 = () => {
