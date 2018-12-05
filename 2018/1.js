@@ -1,3 +1,22 @@
+const part1 = () => {
+    return input.split(/\n/)
+        .reduce((total, value) => parseInt(value) + parseInt(total));
+};
+
+const part2 = () => {
+    let frequency = 0;
+    const frequencies = new Set([frequency]);
+    while (true) {
+        for (const value of input.split(/\n/)) {
+            frequency += parseInt(value);
+            if (frequencies.has(frequency)) {
+                return frequency;
+            }
+            frequencies.add(frequency);
+        }
+    }
+};
+
 const input = `-10
 +18
 +5
@@ -1014,25 +1033,6 @@ const input = `-10
 -17
 -13
 +73906`;
-
-const part1 = () => {
-    return input.split(/\r\n|\r|\n/)
-        .reduce((total, value) => parseInt(value) + parseInt(total));
-};
-
-const part2 = () => {
-    let frequency = 0;
-    const frequencies = new Set([frequency]);
-    while (true) {
-        for (const value of input.split(/\r\n|\r|\n/)) {
-            frequency += parseInt(value);
-            if (frequencies.has(frequency)) {
-                return frequency;
-            }
-            frequencies.add(frequency);
-        }
-    }
-};
 
 console.log(part1());
 console.log(part2());

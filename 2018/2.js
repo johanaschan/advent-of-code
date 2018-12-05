@@ -1,3 +1,59 @@
+let twoTimes = 0;
+let threeTimes = 0;
+
+const part1 = () => {
+    const ids = input.split(/\n/);
+    for (const id of ids) {
+        const frequency = {};
+        for (let i = 0; i < id.length; i++) {
+            const character = id.charAt(i);
+            if (frequency[character]) {
+                frequency[character]++;
+            } else {
+                frequency[character] = 1;
+            }
+        }
+        count(frequency);
+    }
+    return twoTimes * threeTimes;
+};
+
+const count = (frequency) => {
+    let countedTwoTimes, countedThreeTimes = false;
+    Object.keys(frequency).forEach(key => {
+        const count = frequency[key];
+        if (count === 2 && !countedTwoTimes) {
+            twoTimes++;
+            countedTwoTimes = true;
+        } else if (count === 3 && !countedThreeTimes) {
+            threeTimes++;
+            countedThreeTimes = true;
+        }
+    });
+};
+
+const part2 = () => {
+    const ids = input.split(/\n/);
+    for (const id of ids) {
+        for (const id2 of ids) {
+            let differenceCount = 0;
+            let differenceIndex;
+            for (let i = 0; i < id.length; i++) {
+                if (id.charAt(i) !== id2.charAt(i)) {
+                    differenceCount++;
+                    differenceIndex = i;
+                    if (differenceCount > 1) {
+                        break;
+                    }
+                }
+            }
+            if (differenceCount === 1) {
+                return id.substring(0, differenceIndex) + id.substring(differenceIndex + 1);
+            }
+        }
+    }
+};
+
 const input = `oiwcdpbseqgxryfmlpktnupvza
 oiwddpbsuqhxryfmlgkznujvza
 ziwcdpbsechxrvfmlgktnujvza
@@ -248,62 +304,6 @@ oiwcdpbseqhxryfmlzktnkjvzv
 oiwudpbseqhxrefmlgktnujvia
 oiicdpbseqhxryfdloktnujvza
 oihcjpbsxqhxryfmlgktnujvza`;
-
-const ids = input.split(/\r\n|\r|\n/);
-
-let twoTimes = 0;
-let threeTimes = 0;
-
-const part1 = () => {
-    for (const id of ids) {
-        const frequency = {};
-        for (let i = 0; i < id.length; i++) {
-            const character = id.charAt(i);
-            if (frequency[character]) {
-                frequency[character]++;
-            } else {
-                frequency[character] = 1;
-            }
-        }
-        count(frequency);
-    }
-    return twoTimes * threeTimes;
-};
-
-const count = (frequency) => {
-    let countedTwoTimes, countedThreeTimes = false;
-    Object.keys(frequency).forEach(key => {
-        const count = frequency[key];
-        if (count === 2 && !countedTwoTimes) {
-            twoTimes++;
-            countedTwoTimes = true;
-        } else if (count === 3 && !countedThreeTimes) {
-            threeTimes++;
-            countedThreeTimes = true;
-        }
-    });
-};
-
-const part2 = () => {
-    for (const id of ids) {
-        for (const id2 of ids) {
-            let differenceCount = 0;
-            let differenceIndex;
-            for (let i = 0; i < id.length; i++) {
-                if (id.charAt(i) !== id2.charAt(i)) {
-                    differenceCount++;
-                    differenceIndex = i;
-                    if (differenceCount > 1) {
-                        break;
-                    }
-                }
-            }
-            if (differenceCount === 1) {
-                return id.substring(0, differenceIndex) + id.substring(differenceIndex + 1);
-            }
-        }
-    }
-};
 
 console.log(part1());
 console.log(part2());
