@@ -27,10 +27,6 @@ const part1 = () => {
     return twoTimes * threeTimes;
 };
 
-const count = (frequency, twoTimes, threeTimes) => {
-
-};
-
 const part2 = () => {
     const ids = input.split(/\n/);
     for (const id of ids) {
