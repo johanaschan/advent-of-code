@@ -89,7 +89,6 @@ const timeMap = (sleep) => {
     return timeMap;
 };
 
-
 const input = `[1518-07-04 00:01] falls asleep
 [1518-06-27 00:42] wakes up
 [1518-06-12 00:48] wakes up
