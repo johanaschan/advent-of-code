@@ -12,6 +12,7 @@ const part1 = () => {
                 frequency[character] = 1;
             }
         }
+
         let countedTwoTimes, countedThreeTimes = false;
         Object.keys(frequency).forEach(key => {
             const count = frequency[key];

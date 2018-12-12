@@ -77,7 +77,7 @@ const part2 = () => {
     for (let x = 0; x <= maxX; x++) {
         for (let y = 0; y <= maxY; y++) {
             const totalDistance = locations.map(location => manhattanDistance(location.x, location.y, x, y))
-                .reduce((total, value) => value + total);
+                .reduce((sum, value) => sum + value);
             if (totalDistance < totalDistanceMax) {
                 count++;
             }

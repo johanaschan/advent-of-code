@@ -1,6 +1,6 @@
 const part1 = () => {
     return input.split(/\n/)
-        .reduce((total, value) => parseInt(value) + parseInt(total));
+        .reduce((sum, value) => parseInt(sum) + parseInt(value));
 };
 
 const part2 = () => {
