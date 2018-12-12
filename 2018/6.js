@@ -21,7 +21,7 @@ const part1 = () => {
     for (let x = 0; x <= maxX; x++) {
         for (let y = 0; y <= maxY; y++) {
             if (!grid[x]) {
-                grid[x] = [y];
+                grid[x] = [];
             }
             grid[x][y] = {distance: Number.MAX_VALUE};
             locations.forEach((location, index) => {
