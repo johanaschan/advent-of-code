@@ -26,11 +26,11 @@ const part1 = () => {
             grid[x][y] = {distance: Number.MAX_VALUE};
             locations.forEach((location, index) => {
                 const distance = manhattanDistance(location.x, location.y, x, y);
-                const currentDistance = grid[x][y].distance;
-                if (distance < currentDistance) {
+                const shortestDistance = grid[x][y].distance;
+                if (distance < shortestDistance) {
                     grid[x][y] = {index, distance, same: false};
                 }
-                if (distance === currentDistance) {
+                if (distance === shortestDistance) {
                     grid[x][y] = {index, distance, same: true};
                 }
             });
