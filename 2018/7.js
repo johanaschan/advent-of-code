@@ -33,16 +33,16 @@ const order = (instructions, leftSteps, rightSteps) => {
         .filter(step => !rightSteps.includes(step))
         .sort();
 
-    const removedInstruction = [];
+    const removedInstructions = [];
     const filteredInstructions = instructions.filter((step, index) => {
         const firstPossibleStep = step.step === possibleSteps[0];
         if (firstPossibleStep) {
-            removedInstruction.push(index);
+            removedInstructions.push(index);
         }
         return !firstPossibleStep;
     });
-    removedInstruction.reverse();
-    removedInstruction.forEach(index => {
+    removedInstructions.reverse();
+    removedInstructions.forEach(index => {
         leftSteps.splice(index, 1);
         rightSteps.splice(index, 1);
     });
@@ -70,22 +70,22 @@ const order2 = (instructions, leftSteps, rightSteps, workers, seconds) => {
         }
     });
 
-    const removedInstruction = [];
+    const removedInstructions = [];
     const filteredInstructions = instructions.filter((step, index) => {
         const includesStep = workers.list.filter(worker => worker.seconds === seconds
             && worker.step === step.step).length > 0;
         if (includesStep) {
-            removedInstruction.push({index, step: step.step});
+            removedInstructions.push({index, step: step.step});
         }
         return !includesStep;
     });
-    removedInstruction.reverse();
-    removedInstruction.forEach(element => {
+    removedInstructions.reverse();
+    removedInstructions.forEach(element => {
         leftSteps.splice(element.index, 1);
         rightSteps.splice(element.index, 1);
         workers.list = workers.list.filter(worker => worker.step !== element.step);
     });
-    if (!removedInstruction.length) {
+    if (!removedInstructions.length) {
         seconds += 1;
     }
     return order2(filteredInstructions, leftSteps, rightSteps, workers, seconds);
