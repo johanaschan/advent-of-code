@@ -53,8 +53,7 @@ const order2 = (instructions, leftSteps, rightSteps, workers, seconds) => {
     if (instructions.length === 1) {
         let stepSeconds = 1;
         if (!workers.list.length) {
-            stepSeconds = countSeconds(instructions[0].step)
-
+            stepSeconds = countSeconds(instructions[0].step);
         }
         return seconds + stepSeconds + countSeconds(instructions[0].beforeStep);
     }
