@@ -24,11 +24,10 @@ const part2 = () => {
 
 const sleepList = () => {
     const map = {};
-    let sleepingRecords = input.split(/\n/);
     let id;
-    sleepingRecords = sleepingRecords.map(sleepingRecords => parseSleepingRecord(sleepingRecords))
+    input.split(/\n/).map(sleepingRecords => parseSleepingRecord(sleepingRecords))
         .sort((a, b) => {
-            return a.date - b.date
+            return a.date - b.date;
         })
         .forEach(sleepingRecord => {
             if (sleepingRecord.id) {
@@ -70,7 +69,7 @@ const parseSleepingRecord = (sleepingRecord) => {
     }
     return {
         date, state, id
-    }
+    };
 };
 
 const timeMap = (sleep) => {

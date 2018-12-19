@@ -72,7 +72,7 @@ const parseClaim = (claim) => {
 
     return {
         id, leftEdge, topEdge, squareInch, wide, tall
-    }
+    };
 };
 
 const input = `#1 @ 872,519: 18x18

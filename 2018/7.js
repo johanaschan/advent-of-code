@@ -98,7 +98,7 @@ const parseInput = function (row) {
     return {
         'step': row.substring(5, 6),
         'beforeStep': row.substring(36, 37)
-    }
+    };
 };
 
 const input = `Step B must be finished before step K can begin.

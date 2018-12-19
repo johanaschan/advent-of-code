@@ -20,9 +20,9 @@ const tree = (input, index) => {
     }
     const metadataEntries = [];
     for (let m = 0; m < metadataEntriesQuantity; m++) {
-        metadataEntries.push(input[index++])
+        metadataEntries.push(input[index++]);
     }
-    return {node: {childNodes, metadataEntries}, updatedIndex: index}
+    return {node: {childNodes, metadataEntries}, updatedIndex: index};
 };
 
 const sumMetadata = (node) => {
